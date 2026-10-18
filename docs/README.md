@@ -26,7 +26,7 @@ flowchart LR
 | **See tested USB devices (LoRa, WiFi, SDR)** | [Tested USB devices](reference/tested-usb-devices.md) |
 | **Build custom OpenWrt firmware** | [OpenWrt build packages](reference/openwrt-build-packages.md) |
 | **Fix a problem** | [Runbooks — Troubleshooting](runbooks/troubleshooting.md) |
-| **Tune range, antennas, RF** | [Advanced](advanced/) — [range](advanced/range-optimization.md), [antenna smart routing](advanced/antenna-smart-routing.md) |
+| **Tune range, antennas, RF** | [Advanced](advanced/) — [range](advanced/range-optimization.md), [antenna smart routing](advanced/antenna-smart-routing.md), [antenna routing roadmap](advanced/antenna-smart-routing-roadmap.md) |
 | **Reticulum (optional overlay)** | [integrations/reticulum/](../integrations/reticulum/README.md) |
 | **ATAK / CoT (optional)** | [integrations/atak/](../integrations/atak/README.md) |
 | **ADS-B to CoT (optional)** | [integrations/adsb/](../integrations/adsb/README.md) |
