@@ -188,9 +188,9 @@ def read_batman_neighbors(interface='bat0'):
     return []
 
 
-def get_link_quality():
+def get_link_quality(interface='wlan0'):
     """Get combined link quality metrics."""
-    snr_data = read_snr()
+    snr_data = read_snr(interface)
     if snr_data is None:
         return None
     snr, signal, noise = snr_data
@@ -328,7 +328,7 @@ def run(switch, antenna_names, interface, happy_interval, curious_interval,
 
     try:
         while True:
-            quality = get_link_quality()
+            quality = get_link_quality(interface)
             state['current_quality'] = quality
             state['current_antenna'] = switch.current
 
@@ -395,7 +395,7 @@ def run(switch, antenna_names, interface, happy_interval, curious_interval,
 
             time.sleep(SAMPLE_WINDOW)
 
-            other_quality = get_link_quality()
+            other_quality = get_link_quality(interface)
             if other_quality is None:
                 event(f"{antenna_names[other]}: no signal, back to {antenna_names[current]}")
                 switch.select(current)
