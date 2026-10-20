@@ -18,9 +18,9 @@ The daemon uses a lazy diversity algorithm with three modes:
 
 | Mode | Condition | Behavior |
 |------|-----------|----------|
-| **Happy** | SNR > 15 dB | Stay on current antenna, probe the other every ~10s |
-| **Curious** | SNR 3-15 dB | Check the other antenna every 6s |
-| **Desperate** | SNR < 3 dB | Hunt aggressively every 2s |
+| **Happy** | SNR 15 dB or above | Stay on current antenna, probe the other about every 14s (10s interval plus 4s sample) |
+| **Curious** | SNR 8 dB up to 15 dB | Probe the other antenna about every 10s (6s interval plus 4s sample) |
+| **Desperate** | SNR below 8 dB | Poll every 2s; the 10s cooldown limits probes to about every 10s |
 
 When probing, the daemon:
 1. Switches to the other antenna
@@ -173,7 +173,7 @@ The thresholds at the top of the script can be adjusted:
 |-----------|---------|--------|
 | `SNR_HAPPY` | 15 dB | Higher = more aggressive probing |
 | `SNR_CURIOUS` | 8 dB | Higher = earlier curiosity |
-| `SNR_DESPERATE` | 3 dB | Rarely needs changing |
+| `SNR_DESPERATE` | 3 dB | Only affects the signal bar and label, not the mode |
 | `SWITCH_HYSTERESIS` | 3 dB | Lower = switches more easily |
 | `HAPPY_PROBE_EVERY` | 1 cycle | Lower = probes more often when happy |
 | `COOLDOWN` | 10s | Lower = allows faster switching |
